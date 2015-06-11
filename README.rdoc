@@ -1,4 +1,4 @@
-*Designing a Twitter-like Site
+#Designing a Twitter-like Site
 
 **Models
 
