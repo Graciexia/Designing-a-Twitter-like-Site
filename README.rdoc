@@ -1,28 +1,33 @@
-== README
+*Designing a Twitter-like Site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Models
 
-Things you may want to cover:
+***Users
+has many tweets
+username
+msg_amount
+timestamps
+category
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+***Tweets
+belongs to user
+messages
+timestamps
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+**Controllers
+
+***welcome controller
+index
+about
+
+***posts controller
+crud
+
+***comments controller
+crud
+
+
+**Views
+
+/root => welcome/index => welcome/about/uers => users/index /user/id => users/show /users/new => posts/new ** extra ** /posts/id/edit => posts/edit /posts/id/delete => posts/destroy
