@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>The user you are looking for</h1>
+  <header>
+    <h1><%= @user.username %></h1>
+  </header>
+  <p> <%= @msg_amount %></p>
+  <footer>
+    <div class='actions'>
+      <%= link_to 'All users', users_path %>
+    </div>
+  </footer>
+</article>
+

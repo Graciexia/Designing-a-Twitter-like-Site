@@ -1,2 +1,9 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>New Users</h2>
+<%= form_for(@user) do |f| %>
+  <fieldset>
+    <legend>Username</legend>
+    <%= f.text_field :username, placeholder: 'cool guy', maxlength: 10 %>
+  </fieldset>
+
+  <%= f.submit "User Create" %>
+<% end %>

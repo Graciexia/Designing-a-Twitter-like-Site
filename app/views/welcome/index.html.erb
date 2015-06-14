@@ -1,2 +1,6 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to Super Tweeter</h1>
+<h3>Recently Tweets</h3>
+<ol>
+  <%= render partial: 'shared/tweet_list', locals: { tweets: @tweet_recently } %>
+</ol>
+

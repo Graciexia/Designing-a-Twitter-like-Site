@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Designing</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning Create Tweet</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-<%= yield %>
+    <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
 
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <header class='main'>
+    <h1><%= link_to 'Super Tweet', root_path %></h1>
+    <nav>
+      <%= link_to 'Users', users_path %>
+      <%= link_to 'Tweets', tweets_path %>
+      <%= link_to 'About', about_path %>
+    </nav>
+  </header>
+  <div class='container'>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, { class: name }) %>
+    <% end %>
+    <%= yield %>
+  </div>
+  <footer>
+    <%= params.inspect if Rails.env.development? %>
+    Did you Tweet today?
+  </footer>
 </body>
 </html>
