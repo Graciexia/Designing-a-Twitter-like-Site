@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-get 'welcome/index'
-get 'welcome/about', as: 'about'
+get 'sessions/new'
 
 resources :users
 
 resources :tweets
+get '/signup', to: 'users#new'
 
-root 'welcome#index'
+get '/login', to: 'sessions#new', as: 'login'
+post '/login', to: 'sessions#create', as: 'create_session'
+get '/logout', to: 'sessions#destroy', as: 'logout'
+
+root 'tweets#index'
 end
