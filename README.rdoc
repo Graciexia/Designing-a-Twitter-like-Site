@@ -1,25 +1,27 @@
 #Designing a Twitter-like Site
 
+**Ruby version
+2.2.1
+
 **Models
 
 ***Users
 has many tweets
-username
-msg_amount
+name
+email
+bio
+password
 timestamps
-category
+
 
 ***Tweets
 belongs to user
-messages
+body
 timestamps
 
 
-**Controllers
 
-***welcome controller
-index
-about
+**Controllers
 
 ***posts controller
 crud
@@ -30,4 +32,14 @@ crud
 
 **Views
 
-/root => welcome/index => welcome/about/uers => users/index /user/id => users/show /users/new => posts/new ** extra ** /posts/id/edit => posts/edit /posts/id/delete => posts/destroy
+resources :users
+get '/signup', to: 'users#new'
+
+resources :tweets
+
+get 'sessions/new'
+get '/login', to: 'sessions#new', as: 'login'
+post '/login', to: 'sessions#create', as: 'create_session'
+get '/logout', to: 'sessions#destroy', as: 'logout'
+
+root 'tweets#index'
